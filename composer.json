@@ -1,0 +1,15 @@
+{
+  "name": "zhb/mvc-fm",
+  "authors": [
+    {
+      "name": "Zahid Hasan",
+      "email": "hzahid2999@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "."
+    }
+  },
+  "require": {}
+}
