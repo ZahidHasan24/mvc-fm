@@ -29,15 +29,17 @@ class Router {
         }
         if(is_array($callback)) {
             $controller = new $callback[0];
+            Application::$app->controller = $controller;
             $callback[0] = $controller;
         }
         return call_user_func($callback);
     }
 
     public function renderView($view, $params = []) {
+        $layout_name = Application::$app->controller->layout;
         $view_content = $this->renderViewOnly($view, $params);
         ob_start();
-        include_once Application::$ROOT_DIR."/views/layout.php";
+        include_once Application::$ROOT_DIR."/views/layouts/$layout_name.php";
         $layout_content = ob_get_clean();
         return str_replace('{{content}}', $view_content, $layout_content);
     }

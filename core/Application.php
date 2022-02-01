@@ -8,6 +8,7 @@ class Application {
     public Router $router;
     public Request $request;
     public Response $response;
+    public Controller $controller;
 
     public function __construct($rootDir) {
         self::$ROOT_DIR = $rootDir;

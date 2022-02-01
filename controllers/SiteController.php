@@ -12,4 +12,8 @@ class SiteController extends Controller {
     public function contact() {
         return $this->render('contact');
     }
+    public function login() {
+        $this->setLayout('auth');
+        return $this->render('login');
+    }
 }
