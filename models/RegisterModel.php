@@ -12,8 +12,19 @@ class RegisterModel extends Model
     public string $password;
     public string $passwordConfirm;
 
-    public function rgister()
+    public function register()
     {
         echo "Creating new user";
+    }
+
+    public function rules(): array
+    {
+        return [
+            'firstname' => [self::RULE_REQUIRED],
+            'lastname' => [self::RULE_REQUIRED],
+            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL],
+            'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
+            'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']],
+        ];
     }
 }
