@@ -4,7 +4,7 @@ use app\core\Application;
 use app\controllers\SiteController;
 use app\controllers\AuthController;
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application(dirname(__DIR__));
 $app->router->get('/', [SiteController::class, 'home']);
