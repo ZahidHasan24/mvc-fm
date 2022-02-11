@@ -38,7 +38,7 @@ class Database
         if (!empty($newMigrations)) {
             $this->saveMigrations($newMigrations);
         } else {
-            echo 'All migrations are applied';
+            $this->log("There are no migrations to apply");
         }
     }
 
