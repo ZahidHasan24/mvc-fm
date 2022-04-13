@@ -13,8 +13,9 @@ class User extends DbModel
     public string $password = '';
     public string $passwordConfirm = '';
 
-    public function register()
+    public function saveToDb()
     {
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         return $this->save();
     }
 
