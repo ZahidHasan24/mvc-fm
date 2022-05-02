@@ -53,4 +53,9 @@ class Session
     {
         return $_SESSION[$key] ?? false;
     }
+
+    public function remove($key)
+    {
+        unset($_SESSION[$key]);
+    }
 }
