@@ -2,6 +2,7 @@
 
 namespace app\core;
 
+use app\models\User;
 
 class Application
 {
@@ -13,6 +14,7 @@ class Application
     public Controller $controller;
     public Session $session;
     public Database $db;
+    public ?DbModel $user;
 
     public function __construct($rootDir, array $config)
     {
@@ -23,10 +25,19 @@ class Application
         $this->session = new Session();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
+        
     }
 
     public function run()
     {
         echo $this->router->resolve();
+    }
+
+    public function login(DbModel $user)
+    {
+        $this->user = $user;
+        $primaryKey = $user->primaryKey();
+        $primaryValue = $user->{$primaryKey};
+        $this->session->set('user', $primaryValue);
     }
 }
