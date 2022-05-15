@@ -11,6 +11,7 @@
 </head>
 
 <body>
+        <?php include 'nav.php'; ?>
         <div class="container">
                 {{content}}
         </div>
