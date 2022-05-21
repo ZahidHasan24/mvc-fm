@@ -8,10 +8,11 @@ class Application
 {
     public static Application $app;
     public static string $ROOT_DIR;
+    public string $layout = 'main';
     public Router $router;
     public Request $request;
     public Response $response;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public Session $session;
     public Database $db;
     public ?DbModel $user;
