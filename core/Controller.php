@@ -8,6 +8,7 @@ class Controller
 {
     public string $layout = 'main';
     public array $middlewares = [];
+    public string $action = '';
 
     public function setLayout($layout): void
     {
